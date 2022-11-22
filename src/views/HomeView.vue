@@ -1,7 +1,16 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Kas sa tahad jõulupuud</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <button type="button" class="btn btn-secondary">OSTA</button>
+      </div>
+      <h1 class="col-lg-1">või</h1>
+      <div class="col-lg-5">
+        <button type="button" class="btn btn-secondary">MÜÜA</button>
+      </div>
+      <h1 class="col-lg-1">?</h1>
+    </div>
   </div>
 </template>
 
