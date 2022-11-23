@@ -6,15 +6,9 @@
         <div>
           <TreeTypeDropdown/>
 
-
           <HeightDropdown/>
 
-    <div>
-      <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
-        <option  selected disabled value="0">--Maakond--</option>
-        <option value="1">One</option>
-      </select>
-    </div>
+          <CountyDropdown/>
 
           <div>
             <button type="button" class="btn btn-secondary">Tühjenda valikud</button>
@@ -35,10 +29,11 @@
 <script>
 import TreeTypeDropdown from "@/components/shop_components/TreeTypeDropdown";
 import HeightDropdown from "@/components/shop_components/HeightDropdown";
+import CountyDropdown from "@/components/shop_components/CountyDropdown";
 
 export default {
   name: "ShopView",
-  components: {HeightDropdown, TreeTypeDropdown}
+  components: {CountyDropdown, HeightDropdown, TreeTypeDropdown}
 }
 </script>
 
