@@ -7,12 +7,7 @@
           <TreeTypeDropdown/>
 
 
-    <div>
-      <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
-        <option  selected disabled value="0">--Kõrgusvahemik--</option>
-        <option value="1">One</option>
-      </select>
-    </div>
+          <HeightDropdown/>
 
     <div>
       <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
@@ -39,10 +34,11 @@
 
 <script>
 import TreeTypeDropdown from "@/components/shop_components/TreeTypeDropdown";
+import HeightDropdown from "@/components/shop_components/HeightDropdown";
 
 export default {
   name: "ShopView",
-  components: {TreeTypeDropdown}
+  components: {HeightDropdown, TreeTypeDropdown}
 }
 </script>
 
