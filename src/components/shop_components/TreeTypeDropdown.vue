@@ -25,7 +25,8 @@ export default {
     getTreeTypeDropDownInfo: function () {
       this.$http.get("/shop/type")
           .then(response => {
-            console.log(response.data)
+            this.types = response.data
+            // console.log(response.data)
           })
           .catch(error => {
             console.log(error)
