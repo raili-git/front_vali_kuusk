@@ -1,6 +1,6 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-#686F2E" >Secondary</button>
   </div>
 </template>
