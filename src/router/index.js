@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShopView from "@/views/ShopView";
 import LoginView from "@/views/LoginView";
-import TermsAndConditionsView from "@/views/TermsAndConditionsView";
+import TermsAndConditionsView from "@/views/TermsView";
+import TermsView from "@/views/TermsView";
 
 Vue.use(VueRouter)
 
@@ -24,9 +25,9 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/termsandconditions',
-    name: 'termsandconditionsRoute',
-    component: TermsAndConditionsView
+    path: '/terms',
+    name: 'termsRoute',
+    component: TermsView
   },
   {
     path: '/about',
