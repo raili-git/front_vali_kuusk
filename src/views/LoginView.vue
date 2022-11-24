@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-5">
+  <div class="col-lg-2">
     <div>
       <a href="#" v-on:click="clickNavigateToHome" class="link-primary">Tagasi avalehele</a>
     </div>

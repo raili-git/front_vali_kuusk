@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShopView from "@/views/ShopView";
 import LoginView from "@/views/LoginView";
+import ConfirmationView from "@/views/ConfirmationView";
+import TermsView from "@/views/TermsView";
 
 Vue.use(VueRouter)
 
