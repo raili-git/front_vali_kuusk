@@ -6,6 +6,8 @@ import LoginView from "@/views/LoginView";
 import TermsView from "@/views/TermsView";
 import ConfirmationView from "@/views/ConfirmationView";
 import RegistrationView from "@/views/RegistrationView";
+import ContactView from "@/views/ContactView";
+import TreeView from "@/views/TreeView";
 
 
 Vue.use(VueRouter)
@@ -40,6 +42,16 @@ const routes = [
     path: '/registration',
     name: 'registrationRoute',
     component: RegistrationView
+  },
+{
+    path: '/trees',
+    name: 'treeRoute',
+    component: TreeView
+  },
+ {
+    path: '/registration/contact',
+    name: 'contactRoute',
+    component: ContactView
   },
   {
     path: '/about',
