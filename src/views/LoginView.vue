@@ -6,6 +6,8 @@
       </div>
     </div>
 
+    <AlertError :message="errorResponse.message"/>
+
     <div class="col-lg-4">
       <div class="input-group m-5">
         <span class="input-group-text">Kasutajanimi</span>
@@ -16,7 +18,7 @@
         <input type="password" class="form-control">
       </div>
       <div >
-        <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Logi sisse</button>
+        <button v-on:click="login" type="button" class="btn btn-secondary">Logi sisse</button>
       </div>
 
       <div class="input-group mt-5 justify-content-center">
@@ -25,15 +27,16 @@
 
     </div>
 
-
-
   </div>
 
 </template>
 
 <script>
+import AlertError from "@/views/AlertError";
+
 export default {
   name: "LoginView",
+  components: {AlertError},
   data: function (){
     return {
       username: '',
@@ -47,26 +50,47 @@ export default {
 
       errorResponse: {
         message: '',
-        errorCode: 0
+        errorCode: 0,
       },
     }
   },
 
 
   methods: {
-    clickNavigateToTrees: function (){
-      this.$router.push({
-        name:'treeRoute'
-      })
+    displayRequiredFieldsNotFilledAlert: function () {
+      this.errorResponse.message = 'Täida kõik väljad!';
+    },
+
+    sendLoginRequest: function () {
+      this.$http.get("/login", {
+            params: {
+              username: this.username,
+              password: this.password
+            }
+          }
+      ).then(response => {
+        this.loginResponse = response.data
+
+        sessionStorage.setItem('userId', this.loginResponse.userId);
+        this.$router.push({
+          name: 'treeRoute'
+        })
+      }).catch(error => {
+        this.errorResponse = error.response.data
+      });
+    },
+
+    login: function () {
+      this.errorResponse.message = ''
+      if (this.username.length == 0 || this.password.length == 0){
+        this.displayRequiredFieldsNotFilledAlert();
+      }else {
+        this.errorResponse.message = 'Väljad täidetud!';
+        // this.sendLoginRequest();
+      }
+      }
     }
-
-
-  }
 }
 
 </script>
-
-<style scoped>
-
-</style>
 
