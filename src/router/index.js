@@ -6,6 +6,7 @@ import LoginView from "@/views/LoginView";
 import TermsView from "@/views/TermsView";
 import ConfirmationView from "@/views/ConfirmationView";
 import RegistrationView from "@/views/RegistrationView";
+import CartView from "@/views/CartView";
 
 
 Vue.use(VueRouter)
@@ -20,6 +21,11 @@ const routes = [
     path: '/shop',
     name: 'shopRoute',
     component: ShopView
+  },
+  {
+    path: '/cart',
+    name: 'cartRoute',
+    component: CartView
   },
   {
     path: '/confirmation',
