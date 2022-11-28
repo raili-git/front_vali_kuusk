@@ -1,4 +1,4 @@
-<template>
+<template >
   <div>
     <h1>Kas sa tahad jõulupuud</h1>
     <div class="row justify-content-center">
@@ -38,5 +38,17 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+/*background-image: url(../../public/tree.jpg);*/
+
+/*  background-size: 100%;*/
+/*  background-repeat: no-repeat;*/
+/*  max-width: 100vw;*/
+/*  height: 70vh;*/
+
+}
+</style>
 
 
