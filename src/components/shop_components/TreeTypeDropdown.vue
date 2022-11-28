@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select class="form-select form-select-sm mb-5 " aria-label=".form-select-sm example">
+    <select v-model="selectedTypeId" class="form-select form-select-sm mb-5 " aria-label=".form-select-sm example">
       <option selected disabled value="0">--Puuliik--</option>
       <option v-for="type in types" :key="type.typeId"  :value="type.typeId">{{ type.typeName }}</option>
     </select>
@@ -11,6 +11,7 @@ export default {
   name: 'TreeTypeDropdown',
   data: function () {
     return {
+      selectedTypeId: '0',
       types: [
         {
           typeId: 0,
@@ -21,7 +22,9 @@ export default {
     }
   },
   methods: {
-
+      clickSelectTypeIdEvent: function (){
+        this.$emit('clickSelectTypeIdEvent', this.selectedTypeId)
+      },
     getTreeTypeDropDownInfo: function () {
       this.$http.get("/shop/type")
           .then(response => {

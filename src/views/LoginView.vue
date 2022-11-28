@@ -20,7 +20,9 @@
       </div>
 
       <div class="input-group mt-5 justify-content-center">
-        <a href="#" v-on:click="clickNavigateToRegistration" class="link-primary">Registreeru müüjaks</a>
+<!--        <button v-on:click="clickNavigateToRegistration">registreeru</button>-->
+<!--        <a href="#" v-on:click="clickNavigateToRegistration" class="link-primary">Registreeru müüjaks</a>-->
+        <router-link to="/registration">Registreeru müüjaks</router-link>
       </div>
 
     </div>
@@ -34,7 +36,30 @@
 <script>
 export default {
   name: "LoginView",
+  data: function (){
+    return {
+      username: '',
+      password: '',
+
+      loginResponse: {
+        userId: '',
+        roleId: 0,
+        roleType: 0,
+      },
+
+      errorResponse: {
+        message: '',
+        errorCode: 0
+      },
+    }
+  },
+
+
   methods: {
+
+
+
+
     clickNavigateToHome: function () {
       this.$router.push({
         name: 'home'

@@ -26,11 +26,11 @@
       <div class="row justify-content-start">
         <div class="d-grid gap-2 col col-lg-2">
           <div>
-            <TreeTypeDropdown/>
+            <TreeTypeDropdown @clickSelectTypeIdEvent="clickSelectTypeIdEvent" />
 
-            <HeightDropdown/>
+            <HeightDropdown @clickSelectHeightIdEvent = "clickSelectHeightIdEvent"/>
 
-            <CountyDropdown/>
+            <CountyDropdown @clickSelectedCountyIdEvent = "clickSelectedCountyIdEvent" />
 
             <div>
               <button type="button" class="btn btn-secondary">Tühjenda valikud</button>
@@ -61,7 +61,23 @@ import ShopTable from "@/components/shop_components/ShopTable";
 export default {
   name: "ShopView",
   components: {ShopTable, CountyDropdown, HeightDropdown, TreeTypeDropdown},
+  data: function () {
+    return {
+      selectedTypeId: '0',
+      selectedHeightId: '0',
+      selectedCountyId: '0',
+    }
+  },
   methods: {
+    clickSelectTypeIdEvent: function (selectedTypeId) {
+      this.selectedTypeId = selectedTypeId
+    },
+    clickSelectHeightIdEvent: function (selectedHeightId) {
+      this.selectedHeightId = selectedHeightId
+    },
+    clickSelectedCountyIdEvent: function (selectedCountyId) {
+      this.selectedCountyId = selectedCountyId
+    },
     clickNavigateToCart: function (){
       this.$router.push({
         name:'cartRoute'

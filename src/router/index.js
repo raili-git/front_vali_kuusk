@@ -61,7 +61,7 @@ const routes = [
     component: TreeView
   },
  {
-    path: '/registration/contact',
+    path: '/contact',
     name: 'contactRoute',
     component: ContactView
   },

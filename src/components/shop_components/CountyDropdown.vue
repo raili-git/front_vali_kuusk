@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
+    <select v-model="selectedCountyId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
       <option selected disabled value="0">--Maakond--</option>
       <option v-for="county in counties" :key="county.countyId" :value="county.countyId">{{county.countyName}}</option>
     </select>
@@ -11,6 +11,7 @@ export default {
   name: 'CountyDropdown',
   data: function () {
     return {
+      selectedCountyId: '0',
       counties: [
         {
           countyId: 0,
@@ -21,6 +22,9 @@ export default {
   },
 
   methods: {
+    clickSelectedCountyIdEvent: function () {
+      this.$emit('clickSelectedCountyIdEvent', this.selectedCountyId)
+    },
     getCountyDropdoenInfo: function () {
       this.$http.get("/shop/county")
           .then(response => {
