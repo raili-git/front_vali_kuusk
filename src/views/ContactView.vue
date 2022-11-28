@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-lg-4 m-5">
-          <div>
+          <div class="ms-5 col-lg-12">
             <CountyDropdown/>
           </div>
 
@@ -36,7 +36,7 @@
             <input type="text" class="form-control">
           </div>
 
-          <div class="form-check m-5">
+          <div class="m-5">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Nõustu tingimustega
