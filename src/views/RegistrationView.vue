@@ -6,7 +6,7 @@
 
     <div class="col-lg-2">
       <div>
-        <a href="#" v-on:click="clickNavigateToLogin" class="link-primary">Tagasi</a>
+        <router-link to="/login">Tagasi sisselogimisse</router-link>
       </div>
     </div>
 
@@ -29,7 +29,7 @@
             </div>
 
             <div>
-              <button type="button" class="btn btn-secondary">Loo kasutaja</button>
+              <button v-on:click="clickNavigateToContact" type="button" class="btn btn-secondary">Loo kasutaja</button>
             </div>
           </div>
         </div>
@@ -43,11 +43,12 @@
 export default {
   name: "RegistrationView",
   methods: {
-    clickNavigateToLogin: function () {
+    clickNavigateToContact: function (){
       this.$router.push({
-        name: 'login'
+        name:'contactRoute'
       })
     }
+
   }
 }
 

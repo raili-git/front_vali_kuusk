@@ -2,8 +2,9 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/shop">Shop</router-link>
+      <router-link to="/trees">Müügis olevad puud</router-link> |
+      <router-link to="/new-tree">Lisa puu</router-link> |
+      <router-link to="/history">Müügiajalugu</router-link>
     </nav>
     <router-view/>
   </div>

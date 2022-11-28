@@ -2,7 +2,7 @@
   <div class="container">
     <div class="col-lg-2">
       <div>
-        <a href="#" v-on:click="clickNavigateToShop" class="link-primary">Tagasi valima</a>
+        <router-link to="/shop">Tagasi valima</router-link>
       </div>
     </div>
 
@@ -55,7 +55,7 @@
       </div>
 
       <div class="row d-grid justify-content-md-end">
-        <button type="button" class="btn btn-secondary">Edasi</button>
+        <button v-on:click="clickNavigateToPayment" type="button" class="btn btn-secondary">Edasi</button>
       </div>
 
 
@@ -72,11 +72,12 @@ export default {
   name: "CartView",
   components: {CartTable},
   methods: {
-    clickNavigateToShop: function () {
+    clickNavigateToPayment: function (){
       this.$router.push({
-            name: 'shopRoute'
-          })
+        name:'paymentRoute'
+      })
     }
+
   }
 }
 </script>

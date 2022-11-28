@@ -44,7 +44,7 @@
           </div>
 
           <div>
-            <a href="#" v-on:click="clickNavigateToTerms" class="link-primary">Tingimused</a>
+            <router-link to="/terms-seller">Tingimused</router-link>
           </div>
           <div class="input-group mt-5 justify-content-center">
             <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Salvesta</button>
@@ -70,11 +70,7 @@ export default {
   //   }
   // },
   methods: {
-    clickNavigateToTerms: function () {
-      this.$router.push({
-        name: 'termsRoute'
-      })
-    },
+
     clickNavigateToTrees: function () {
       this.$router.push({
         name: 'treeRoute'

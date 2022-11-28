@@ -7,7 +7,7 @@
 
     <div class="col-lg-2">
       <div>
-        <a href="#" class="link-primary">Tagasi</a>
+        <router-link to="/cart">Tagasi ostukorvi</router-link>
       </div>
     </div>
 
@@ -41,9 +41,11 @@
 
 
       </div>
-
-      <div>
-        <button type="button" class="btn btn-secondary">Maksma</button>
+      <div class="row d-grid justify-content-md-end mb-5">
+        <router-link to="/terms-customer">Tingimused</router-link>
+      </div>
+      <div class="row d-grid justify-content-md-end">
+        <button v-on:click="clickNavigateToConfirmation" type="button" class="btn btn-secondary">Maksma</button>
       </div>
 
     </div>
@@ -54,7 +56,15 @@
 
 <script>
 export default {
-  name: "PaymentView"
+  name: "PaymentView",
+  methods: {
+    clickNavigateToConfirmation: function () {
+      this.$router.push({
+        name: 'confirmationRoute'
+      })
+
+    }
+  }
 }
 </script>
 

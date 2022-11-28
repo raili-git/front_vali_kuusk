@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-2">
       <div>
-        <a href="#" v-on:click="clickNavigateToHome" class="link-primary">Tagasi avalehele</a>
+        <router-link to="/">Tagasi avalehele</router-link>
       </div>
     </div>
 
@@ -16,12 +16,10 @@
         <input type="password" class="form-control">
       </div>
       <div >
-        <button type="button" class="btn btn-secondary">Logi sisse</button>
+        <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Logi sisse</button>
       </div>
 
       <div class="input-group mt-5 justify-content-center">
-<!--        <button v-on:click="clickNavigateToRegistration">registreeru</button>-->
-<!--        <a href="#" v-on:click="clickNavigateToRegistration" class="link-primary">Registreeru müüjaks</a>-->
         <router-link to="/registration">Registreeru müüjaks</router-link>
       </div>
 
@@ -56,20 +54,12 @@ export default {
 
 
   methods: {
-
-
-
-
-    clickNavigateToHome: function () {
+    clickNavigateToTrees: function (){
       this.$router.push({
-        name: 'home'
-      })
-    },
-    clickNavigateToRegistration: function () {
-      this.$router.push({
-        name: 'registrationRoute'
+        name:'treeRoute'
       })
     }
+
 
   }
 }

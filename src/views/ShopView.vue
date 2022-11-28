@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="row d-grid justify-content-md-start">
-      <a href="#" v-on:click="clickNavigateToHome" class="link-primary">Tagasi avalehele</a>
+      <router-link to="/">Tagasi avalehele</router-link>
     </div>
 
     <div class="row d-grid justify-content-md-end">
@@ -82,12 +82,8 @@ export default {
       this.$router.push({
         name:'cartRoute'
       })
-    },
-    clickNavigateToHome: function () {
-      this.$router.push({
-        name: 'home'
-      })
     }
+
   }
 }
 </script>
