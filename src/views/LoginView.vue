@@ -11,11 +11,11 @@
     <div class="col-lg-4">
       <div class="input-group m-5">
         <span class="input-group-text">Kasutajanimi</span>
-        <input type="text" class="form-control">
+        <input v-model="username" type="text" class="form-control">
       </div>
       <div class="input-group m-5">
         <span class="input-group-text">Parool</span>
-        <input type="password" class="form-control">
+        <input v-model="password" type="password" class="form-control">
       </div>
       <div >
         <button v-on:click="login" type="button" class="btn btn-secondary">Logi sisse</button>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AlertError from "@/views/AlertError";
+import AlertError from "@/components/alerts/AlertError";
 
 export default {
   name: "LoginView",
@@ -85,8 +85,7 @@ export default {
       if (this.username.length == 0 || this.password.length == 0){
         this.displayRequiredFieldsNotFilledAlert();
       }else {
-        this.errorResponse.message = 'Väljad täidetud!';
-        // this.sendLoginRequest();
+        this.sendLoginRequest();
       }
       }
     }
