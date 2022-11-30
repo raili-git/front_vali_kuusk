@@ -6,7 +6,7 @@
           <div class="col-lg-4">
             <div class="input-group m-5">
               <span class="input-group-text">Kasutajanimi</span>
-              <input type="text" class="form-control">
+              {{ minni }}
             </div>
             <div class="input-group m-5">
               <span class="input-group-text">Eesnimi</span>
