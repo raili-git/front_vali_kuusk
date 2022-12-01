@@ -1,15 +1,19 @@
 <template >
   <div>
-    <h1>Kas sa tahad jõulupuud</h1>
-    <div class="row justify-content-center">
-      <div class="col-lg-5">
-        <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary">OSTA</button>
-      </div>
-      <h1 class="col-lg-1">või</h1>
-      <div class="col-lg-5">
-        <button v-on:click="clickNavigateToLogin" class="btn btn-secondary">MÜÜA</button>
-      </div>
-      <h1 class="col-lg-1">?</h1>
+    <div>
+      <h1>Kas sa tahad jõulupuud</h1>
+    </div>
+    <div>
+      <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary mt-3 mb-3">OSTA</button>
+    </div>
+    <div>
+      <h1>või</h1>
+    </div>
+    <div>
+      <button v-on:click="clickNavigateToLogin" class="btn btn-secondary mt-3 mb-3">MÜÜA</button>
+    </div>
+    <div>
+      <h1>?</h1>
     </div>
   </div>
 </template>

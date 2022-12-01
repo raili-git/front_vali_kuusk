@@ -33,7 +33,7 @@
             <CountyDropdown @clickSelectedCountyIdEvent = "clickSelectedCountyIdEvent" />
 
             <div>
-              <button type="button" class="btn btn-secondary">Tühjenda valikud</button>
+              <button type="button" class="btn btn-secondary">Filtreeri</button>
             </div>
           </div>
         </div>
