@@ -2,65 +2,71 @@
   <div>
     <h3>Müüja andmed</h3>
 
-      <div class="row justify-content-center">
-          <div class="col-lg-4">
-            <div class="input-group m-5">
-              <span class="input-group-text">Kasutajanimi</span>
-              {{ minni }}
-            </div>
-            <div class="input-group m-5">
-              <span class="input-group-text">Eesnimi</span>
-              <input v-model="profileRequest.firstName" type="text" class="form-control">
-            </div>
-                <div class="input-group m-5">
-                  <span class="input-group-text">Perekonnanimi</span>
-                  <input type="text" class="form-control">
-                </div>
-            <div class="input-group m-5">
-              <span class="input-group-text">Telefon</span>
-              <input type="text" class="form-control">
-            </div>
-            <div class="input-group m-5">
-              <span class="input-group-text">E-post</span>
-              <input type="text" class="form-control">
-            </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="input-group m-5">
+          <span class="input-group-text">Kasutajanimi</span>
+          {{ minni }}
         </div>
-
-        <div class="col-lg-4 m-5">
-          <div class="ms-5 col-lg-12">
-            <CountyDropdown/>
-          </div>
-
-          <div class="input-group m-5">
-            <span class="input-group-text">Aadress</span>
-            <input type="text" class="form-control">
-          </div>
-
-          <div class="m-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Nõustu tingimustega
-            </label>
-          </div>
-
-          <div>
-            <router-link to="/terms-seller" target="_blank">Tingimused</router-link>
-          </div>
-          <div class="input-group mt-5 justify-content-center">
-            <button v-on:click="addContactInfo" type="button" class="btn btn-secondary">Salvesta</button>
-          </div>
+        <div class="input-group m-5">
+          <span class="input-group-text">Eesnimi</span>
+          <input v-model="profileRequest.firstName" type="text" class="form-control">
+        </div>
+        <div class="input-group m-5">
+          <span class="input-group-text">Perekonnanimi</span>
+          <input v-model="profileRequest.lastName" type="text" class="form-control">
+        </div>
+        <div class="input-group m-5">
+          <span class="input-group-text">Telefon</span>
+          <input v-model="profileRequest.phoneNumber" type="text" class="form-control">
+        </div>
+        <div class="input-group m-5">
+          <span class="input-group-text">E-post</span>
+          <input v-model="profileRequest.email" type="text" class="form-control">
         </div>
       </div>
+
+      <div class="col-lg-4 m-5">
+        <div class="ms-5 col-lg-12">
+          <CountyDropdown :profile-request="profileRequest.addressCountyId"/>
+        </div>
+
+        <div class="input-group m-5">
+          <span class="input-group-text">Aadress</span>
+          <input v-model="profileRequest.addressStreet" type="text" class="form-control">
+        </div>
+
+        <div class="m-5">
+          <input v-model="conditions" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Nõustu tingimustega
+          </label>
+        </div>
+
+        <div>
+          <router-link to="/terms-seller" target="_blank">Tingimused</router-link>
+        </div>
+        <div class="input-group mt-5 justify-content-center">
+          <button v-on:click="addContact" type="button" class="btn btn-secondary">Salvesta</button>
+        </div>
+        <div>
+          <AlertError :message="errorResponse.message"/>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 
 </template>
 
 <script>
 import CountyDropdown from "@/components/shop_components/CountyDropdown";
+import AlertError from "@/components/alerts/AlertError";
 
 export default {
   name: "ContactView",
-  components: {CountyDropdown},
+  components: {AlertError, CountyDropdown},
   data: function () {
     return {
       profileRequest:
@@ -76,28 +82,45 @@ export default {
       errorResponse: {
         message: '',
         errorCode: 0
-      }
+      },
+
+      conditions: false
     }
   },
   methods: {
+
+    displayRequiredFieldsNotFilledAlert: function () {
+      this.errorResponse.message = 'Nõutud väljad ei ole täidetud!?';
+    },
+    displayCheckboxNotSelected: function () {
+      this.errorResponse.message = 'Nõustu tingimustega.';
+    },
+
     addContactInfo: function () {
       this.$http.post("/profile-info", this.profileRequest
       ).then(response => {
-        console.log(response.data)
+        this.$router.push({
+          name: 'treeRoute'
+        })
       }).catch(error => {
         console.log(error)
       })
     },
 
-    clickNavigateToTrees: function () {
-      this.$router.push({
-        name: 'treeRoute'
-      })
+
+    addContact: function () {
+      this.errorResponse.message = ''
+      if (this.profileRequest.phoneNumber.length == 0 || this.profileRequest.email.length == 0 ||
+          this.profileRequest.firstName.length == 0 || this.profileRequest.lastName.length == 0 ||
+          this.profileRequest.addressStreet.length == 0 || this.profileRequest.addressCountyId == 0) {
+        this.displayRequiredFieldsNotFilledAlert();
+      } else if (this.conditions) {
+        this.displayCheckboxNotSelected();
+      } else {
+        this.addContactInfo();
+      }
     }
   }
 }
 </script>
 
-<style scoped>
-
-</style>

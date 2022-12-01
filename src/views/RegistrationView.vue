@@ -70,7 +70,6 @@ export default {
   methods: {
     displayRequiredFieldsNotFilledAlert: function () {
       this.errorResponse.message = 'Nõutud väljad ei ole täidetud!?';
-
     },
     displayPasswordsDoNotMatch: function () {
       this.errorResponse.message = 'Sisestatud paroolid ei ühti';
