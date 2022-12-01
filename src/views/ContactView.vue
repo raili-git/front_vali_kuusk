@@ -10,7 +10,7 @@
             </div>
             <div class="input-group m-5">
               <span class="input-group-text">Eesnimi</span>
-              <input type="text" class="form-control">
+              <input v-model="profileRequest.firstName" type="text" class="form-control">
             </div>
                 <div class="input-group m-5">
                   <span class="input-group-text">Perekonnanimi</span>
@@ -44,10 +44,10 @@
           </div>
 
           <div>
-            <router-link to="/terms-seller">Tingimused</router-link>
+            <router-link to="/terms-seller" target="_blank">Tingimused</router-link>
           </div>
           <div class="input-group mt-5 justify-content-center">
-            <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Salvesta</button>
+            <button v-on:click="addContactInfo" type="button" class="btn btn-secondary">Salvesta</button>
           </div>
         </div>
       </div>
@@ -61,15 +61,33 @@ import CountyDropdown from "@/components/shop_components/CountyDropdown";
 export default {
   name: "ContactView",
   components: {CountyDropdown},
-  // data: function () {
-  //   return {
-  //     errorResponse: {
-  //       message: '',
-  //       errorCode: 0
-  //     }
-  //   }
-  // },
+  data: function () {
+    return {
+      profileRequest:
+          {
+            phoneNumber: '',
+            email: '',
+            firstName: '',
+            lastName: '',
+            addressCountyId: 0,
+            addressStreet: ''
+          },
+
+      errorResponse: {
+        message: '',
+        errorCode: 0
+      }
+    }
+  },
   methods: {
+    addContactInfo: function () {
+      this.$http.post("/profile-info", this.profileRequest
+      ).then(response => {
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
 
     clickNavigateToTrees: function () {
       this.$router.push({
