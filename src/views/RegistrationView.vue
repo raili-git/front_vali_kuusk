@@ -54,6 +54,10 @@ export default {
   data: function () {
     return {
 
+      loginResponse: {
+        userId: '',
+      },
+
       newUserRequest: {
         username: '',
         password: '',
@@ -79,8 +83,8 @@ export default {
     saveNewUser: function () {
       this.$http.post("/registration", this.newUserRequest
       ).then(response => {
-
-        // this.newUserRequest = response.data
+        this.loginResponse = response.data
+        sessionStorage.setItem('userId', this.loginResponse.userId)
         this.$router.push({
           name: 'contactRoute'
         })

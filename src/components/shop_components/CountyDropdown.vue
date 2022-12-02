@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select  v-model="selectedCountyId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
+    <select v-on:change="clickSelectedCountyIdEvent" v-model="selectedCountyId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
       <option selected disabled value="0">--Maakond--</option>
       <option v-for="county in counties" :key="county.countyId" :value="county.countyId">{{county.countyName}}</option>
     </select>

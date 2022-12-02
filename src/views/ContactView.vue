@@ -6,7 +6,7 @@
       <div class="col-lg-4">
         <div class="input-group m-5">
           <span class="input-group-text">Kasutajanimi</span>
-          {{ minni }}
+           Müüja id: {{userId}}
         </div>
         <div class="input-group m-5">
           <span class="input-group-text">Eesnimi</span>
@@ -28,7 +28,7 @@
 
       <div class="col-lg-4 m-5">
         <div class="ms-5 col-lg-12">
-          <CountyDropdown :profile-request="profileRequest.addressCountyId"/>
+          <CountyDropdown @clickSelectedCountyIdEvent="setSelectedCountyId"/>
         </div>
 
         <div class="input-group m-5">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="m-5">
-          <input v-model="conditions" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input v-model="termsAreAccepted" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
             Nõustu tingimustega
           </label>
@@ -69,8 +69,11 @@ export default {
   components: {AlertError, CountyDropdown},
   data: function () {
     return {
+
+      userId: sessionStorage.getItem('userId'),
       profileRequest:
           {
+            userId:sessionStorage.getItem('userId'),
             phoneNumber: '',
             email: '',
             firstName: '',
@@ -84,7 +87,7 @@ export default {
         errorCode: 0
       },
 
-      conditions: false
+      termsAreAccepted: false
     }
   },
   methods: {
@@ -108,18 +111,31 @@ export default {
     },
 
 
+    allRequiredFieldsAreFilled: function () {
+      return this.profileRequest.phoneNumber.length !== 0 && this.profileRequest.email.length !== 0 &&
+          this.profileRequest.firstName.length !== 0 && this.profileRequest.lastName.length !== 0 &&
+          this.profileRequest.addressStreet.length !== 0 && this.profileRequest.addressCountyId !== 0 ;
+    },
+
+
+
     addContact: function () {
-      this.errorResponse.message = ''
-      if (this.profileRequest.phoneNumber.length == 0 || this.profileRequest.email.length == 0 ||
-          this.profileRequest.firstName.length == 0 || this.profileRequest.lastName.length == 0 ||
-          this.profileRequest.addressStreet.length == 0 || this.profileRequest.addressCountyId == 0) {
+
+
+
+      this.errorResponse.message = '';
+      if (!this.allRequiredFieldsAreFilled()) {
         this.displayRequiredFieldsNotFilledAlert();
-      } else if (this.conditions) {
+      } else if (!this.termsAreAccepted) {
         this.displayCheckboxNotSelected();
       } else {
         this.addContactInfo();
       }
-    }
+    },
+    setSelectedCountyId: function (selectedCountyId) {
+      this.profileRequest.addressCountyId = selectedCountyId
+    },
+
   }
 }
 </script>

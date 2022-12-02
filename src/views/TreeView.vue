@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
+      <div> Müüja id: {{userId}}</div>
       <div class="col-lg-4 m-5">
         <h3>Sinu müügis olevad puud:</h3>
       </div>
@@ -24,6 +25,11 @@
 import SellerTreeTable from "@/components/shop_components/SellerTreeTable";
 
 export default {
+  data: function () {
+    return{
+      userId: sessionStorage.getItem('userId')
+    }
+  },
   name: "TreeView",
   components: {SellerTreeTable},
   methods: {
