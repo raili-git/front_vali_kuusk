@@ -12,9 +12,9 @@
 
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-5">
+        <div class=" col col-5">
 
-          <div class>
+          <div >
             <div class="input-group m-2">
               <span class="input-group-text">Kasutajanimi</span>
               <input v-model="newUserRequest.username" type="text" class="form-control">
@@ -32,7 +32,7 @@
               <button v-on:click="registration" type="button" class="btn btn-secondary">Loo kasutaja</button>
             </div>
 
-            <div>
+            <div class="row justify-content-center">
               <AlertError :message="errorResponse.message"/>
 
             </div>

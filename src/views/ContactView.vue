@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <div class="col-lg-4 m-5">
+      <div class="col-lg-4 m-5 ">
+
         <div class="ms-5 col-lg-12">
           <CountyDropdown @clickSelectedCountyIdEvent="setSelectedCountyId"/>
         </div>
@@ -49,9 +50,9 @@
         <div class="input-group mt-5 justify-content-center">
           <button v-on:click="addContact" type="button" class="btn btn-secondary">Salvesta</button>
         </div>
-        <div>
-          <AlertError :message="errorResponse.message"/>
 
+        <div class="row justify-content-center">
+          <AlertError :message="errorResponse.message"/>
         </div>
 
       </div>
