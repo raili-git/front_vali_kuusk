@@ -25,7 +25,7 @@ export default {
       this.$emit('clickSelectHeightIdEvent', this.selectedHeightId)
     },
     getHeightDropDownInfo: function () {
-      this.$http.get("/shop/height")
+      this.$http.get("/product/height")
           .then(response => {
             this.heights = response.data
             console.log(response.data)

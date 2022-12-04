@@ -26,7 +26,7 @@ export default {
         this.$emit('clickSelectTypeIdEvent', this.selectedTypeId)
       },
     getTreeTypeDropDownInfo: function () {
-      this.$http.get("/shop/type")
+      this.$http.get("/product/type")
           .then(response => {
             this.types = response.data
             // console.log(response.data)

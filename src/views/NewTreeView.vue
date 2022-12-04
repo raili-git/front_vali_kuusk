@@ -1,33 +1,39 @@
 <template>
   <div class="container">
-    <div class="row justify-content-start">
-      <div class="col-lg-4 m-5">
-        <h3>Lisa uus puu:</h3>
-      </div>
-      <div class="row d-grid justify-content-md-end col-lg-6 m-5">
-        <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
-      </div>
 
-      <div class="row justify-content-start">
-          <div class="col-lg-2 ms-3">
+    <div class="row d-grid justify-content-md-end">
+      <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
+    </div>
+
+    <div class="row d-grid justify-content-md-center mb-5">
+      <h3>Lisa uus puu:</h3>
+    </div>
+
+    <div class="row justify-content-start">
+
+          <div class="col-lg-2">
             <TreeTypeDropdown/>
           </div>
-          <di class="col-lg-2 ms-3">
-            <HeightDropdown/>
-          </di>
-        <div class="col-lg-2 ms-5">
-          <p> Hind,€:</p>
-        </div>
-        <div class="col-lg-2 ms-5">
-          <p> Pilt</p>
-        </div>
-      </div>
 
-      <div class="row d-grid justify-content-md-end bottom-50">
-        <div class="row col-lg-6 m-5">
-          <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Salvesta</button>
+          <div class="col-lg-2">
+            <HeightDropdown/>
+          </div>
+
+        <div class="col-lg-2">
+          <div class="input-group">
+            <span class="input-group-text">Hind,€</span>
+            <input v-model="newTreeRequest.price" type="text" class="form-control">
+          </div>
         </div>
-      </div>
+
+        <div class="col-lg-2">
+          <ImageInput @pictureInputSuccess="setPicture"/>
+        </div>
+
+    </div>
+
+    <div class="row d-grid justify-content-md-end mt-5">
+      <button v-on:click="clickNavigateToTrees" type="button" class="btn btn-secondary">Salvesta</button>
     </div>
 
   </div>
@@ -37,9 +43,27 @@
 <script>
 import TreeTypeDropdown from "@/components/shop_components/TreeTypeDropdown";
 import HeightDropdown from "@/components/shop_components/HeightDropdown";
+import ImageInput from "@/components/image/ImageInput";
 export default {
   name: "NewTreeView",
-  components: {HeightDropdown, TreeTypeDropdown},
+  components: {ImageInput, HeightDropdown, TreeTypeDropdown},
+  data: function () {
+    return {
+      userId: sessionStorage.getItem('userId'),
+
+      newTreeRequest: {
+        userId: 0,
+        typeId: 0,
+        heightId: 0,
+        price: '',
+        status: '',
+        pictureData: '',
+        countyId: 0,
+        addressIs: 0,
+      },
+
+    }
+  },
   methods: {
     clickNavigateToHome: function () {
       this.$router.push({
@@ -50,7 +74,10 @@ export default {
       this.$router.push({
         name:'treeRoute'
       })
-    }
+    },
+    setPicture: function (picture) {
+      this.newTreeRequest.pictureData = picture;
+    },
   }
 
 }

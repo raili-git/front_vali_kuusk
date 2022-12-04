@@ -29,7 +29,7 @@ export default {
       this.$emit('clickSelectedCountyIdEvent', this.selectedCountyId)
     },
     getCountyDropdownInfo: function () {
-      this.$http.get("/shop/county")
+      this.$http.get("/product/county")
           .then(response => {
             this.counties = response.data
             console.log(response.data)
