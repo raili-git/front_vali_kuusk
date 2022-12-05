@@ -3,19 +3,25 @@
     <table class="table table-hover table-success">
       <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col">Foto</th>
         <th scope="col">Liik</th>
         <th scope="col">Kõrgusvahemik</th>
-        <th scope="col">Hind</th>
+        <th scope="col">Hind, €</th>
         <th scope="col"></th>
       </tr>
       </thead>
+
       <tbody>
       <tr>
-        <th>Foto</th>
+<!--      <tr v-for="product in products" :key="product.productId">  // mis see :key teeb?-->
+        <td>Foto</td>
+<!--        <td>{{ product.productImage }}</td>-->
         <td>Kuusk</td>
+<!--        <td>{{product.typeName}}</td>-->
         <td>0-1</td>
+<!--        <td>{{ product.heightGap }}</td>-->
         <td>50€</td>
+<!--        <td>{{ product.productPrice }}</td>-->
         <td>
           <div class="d-grid gap-2 d-md-block">
             <button v-on:click="clickNavigateToModifyTree" type="button" class="btn btn-secondary">Muuda</button>
@@ -24,6 +30,7 @@
         </td>
       </tr>
       </tbody>
+
     </table>
   </div>
 </template>
@@ -31,7 +38,15 @@
 export default {
   name: 'SellerTreeTable',
   props: {
-    clickNavigateToModifyTree: {}
+    products: Array()
+  },
+  methods: {
+    clickNavigateToModifyTree: function () {
+      this.$router.push({
+        name: 'modifyTreeRoute'
+      })
+
+    }
   }
 }
 </script>

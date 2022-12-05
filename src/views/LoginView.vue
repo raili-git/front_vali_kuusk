@@ -6,25 +6,32 @@
       </div>
     </div>
 
-    <AlertError :message="errorResponse.message"/>
+    <div class="row justify-content-center">
 
-    <div class="col-lg-4">
-      <div class="input-group m-5">
-        <span class="input-group-text">Kasutajanimi</span>
-        <input v-model="username" type="text" class="form-control">
-      </div>
-      <div class="input-group m-5">
-        <span class="input-group-text">Parool</span>
-        <input v-model="password" type="password" class="form-control">
-      </div>
-      <div >
-        <button v-on:click="login" type="button" class="btn btn-secondary">Logi sisse</button>
-      </div>
+      <div class="col-lg-3">
 
-      <div class="input-group mt-5 justify-content-center">
-        <router-link to="/registration">Registreeru müüjaks</router-link>
-      </div>
+        <div>
+          <AlertError :message="errorResponse.message"/>
+        </div>
 
+        <div class="input-group mb-5 mt-5">
+          <span class="input-group-text">Kasutajanimi</span>
+          <input v-model="username" type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-5">
+          <span class="input-group-text">Parool</span>
+          <input v-model="password" type="password" class="form-control">
+        </div>
+
+        <div>
+          <button v-on:click="login" type="button" class="btn btn-secondary">Logi sisse</button>
+        </div>
+
+        <div class="input-group mt-5 justify-content-center">
+          <router-link to="/registration">Registreeru müüjaks</router-link>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -37,7 +44,7 @@ import AlertError from "@/components/alerts/AlertError";
 export default {
   name: "LoginView",
   components: {AlertError},
-  data: function (){
+  data: function () {
     return {
       username: '',
       password: '',
@@ -82,13 +89,13 @@ export default {
 
     login: function () {
       this.errorResponse.message = ''
-      if (this.username.length == 0 || this.password.length == 0){
+      if (this.username.length == 0 || this.password.length == 0) {
         this.displayRequiredFieldsNotFilledAlert();
-      }else {
+      } else {
         this.sendLoginRequest();
       }
-      }
     }
+  }
 }
 
 </script>

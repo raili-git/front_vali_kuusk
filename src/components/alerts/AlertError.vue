@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="message.length > 0" class="alert alert-dark col-lg-7 m-5" role="alert">
+    <div v-if="message.length > 0" class="alert alert-dark col-lg-12 mt-3" role="alert">
       {{message}}
     </div>
 

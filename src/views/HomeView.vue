@@ -1,5 +1,5 @@
 <template >
-  <div>
+  <div class="background">
     <div>
       <h1>Kas sa tahad jõulupuud</h1>
     </div>
@@ -14,6 +14,9 @@
     </div>
     <div>
       <h1>?</h1>
+    </div>
+    <div>
+      <img src="../assets/Christmas_tree_car_7992.png" class="car">
     </div>
   </div>
 </template>

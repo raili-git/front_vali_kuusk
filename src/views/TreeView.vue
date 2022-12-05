@@ -12,7 +12,7 @@
     </div>
 
     <div class="row justify-content-md-center">
-      <SellerTreeTable :click-navigate-to-modify-tree="clickNavigateToModifyTree"/>
+      <SellerTreeTable/>
     </div>
 
   </div>
@@ -26,23 +26,45 @@ import SellerTreeTable from "@/components/shop_components/SellerTreeTable";
 export default {
   data: function () {
     return {
-      userId: sessionStorage.getItem('userId')
+      userId: sessionStorage.getItem('userId'),
+
+      products: [
+        {
+          productPrice: 0,
+          productImage: '',
+          heightGap: '',
+          typeName: '',
+          productId: '', //(vaja puu muutmiseks)
+
+        }
+      ]
+
     }
   },
   name: "TreeView",
   components: {SellerTreeTable},
   methods: {
+
+    getUserProductsByUserId: function () {
+      this.$http.get("/product/trees/by-user", {
+            params: {
+              userId: this.userId,
+            }
+          }
+      ).then(response => {
+        this.products = response.data
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     clickNavigateToHome: function () {
       this.$router.push({
         name: 'home'
       })
     },
-    clickNavigateToModifyTree: function () {
-
-      this.$router.push({
-        name: 'modifyTreeRoute'
-      })
-    }
+  },
+  beforeMount() {
+    this.getUserProductsByUserId()
   }
 
 }

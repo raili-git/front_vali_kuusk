@@ -2,8 +2,12 @@
   <div>
     <h1>Makse edukalt sooritatud!</h1>
     <h3> Ostuinfo saadeti Teie meilile</h3>
+    <div class="mt-5">
+      <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary btn-lg">Osta veel üks puu!</button>
+    </div>
     <div>
-      <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary">Osta veel üks puu</button>
+      <img src="../assets/bear_with_tree-4714.png" class="bear">
+
     </div>
   </div>
 </template>

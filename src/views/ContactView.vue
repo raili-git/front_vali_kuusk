@@ -6,7 +6,7 @@
       <div class="col-lg-4">
         <div class="input-group m-5">
           <span class="input-group-text">Kasutajanimi</span>
-           Müüja id: {{userId}}
+         Müüja id: {{userId}}
         </div>
         <div class="input-group m-5">
           <span class="input-group-text">Eesnimi</span>
@@ -37,21 +37,22 @@
           <input v-model="profileRequest.addressStreet" type="text" class="form-control">
         </div>
 
-        <div class="m-5">
+        <div class="mb-5">
           <input v-model="termsAreAccepted" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
             Nõustu tingimustega
           </label>
         </div>
 
-        <div>
+        <div class="mb-5">
           <router-link to="/terms-seller" target="_blank">Tingimused</router-link>
         </div>
-        <div class="input-group mt-5 justify-content-center">
+
+        <div class="input-group mb-4 justify-content-center">
           <button v-on:click="addContact" type="button" class="btn btn-secondary">Salvesta</button>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center ms-5 ">
           <AlertError :message="errorResponse.message"/>
         </div>
 
