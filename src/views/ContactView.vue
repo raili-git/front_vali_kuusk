@@ -121,9 +121,6 @@ export default {
 
 
     addContact: function () {
-
-
-
       this.errorResponse.message = '';
       if (!this.allRequiredFieldsAreFilled()) {
         this.displayRequiredFieldsNotFilledAlert();

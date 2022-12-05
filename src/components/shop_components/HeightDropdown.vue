@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select v-model="selectedHeightId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
+    <select v-on:change="clickSelectHeightIdEvent" v-model="selectedHeightId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
       <option selected disabled value="0">--Kõrgusvahemik--</option>
       <option v-for="height in heights" :key="height.heightId" :value="height.heightId">{{height.heightGap}}</option>
     </select>

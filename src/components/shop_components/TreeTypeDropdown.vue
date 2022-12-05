@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select v-model="selectedTypeId" class="form-select form-select-sm mb-5 " aria-label=".form-select-sm example">
+    <select v-on:change="clickSelectTypeIdEvent" v-model="selectedTypeId" class="form-select form-select-sm mb-5 " aria-label=".form-select-sm example">
       <option selected disabled value="0">--Puuliik--</option>
       <option v-for="type in types" :key="type.typeId"  :value="type.typeId">{{ type.typeName }}</option>
     </select>

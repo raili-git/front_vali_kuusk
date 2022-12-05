@@ -6,7 +6,6 @@
         <th scope="col"></th>
         <th scope="col">Liik</th>
         <th scope="col">Kõrgusvahemik</th>
-        <th scope="col">Piirkond</th>
         <th scope="col">Hind</th>
         <th scope="col"></th>
       </tr>
@@ -16,7 +15,6 @@
         <th>Foto</th>
         <td>Kuusk</td>
         <td>0-1</td>
-        <td>Harjumaa</td>
         <td>50€</td>
         <td>
           <div class="d-grid gap-2 d-md-block">
