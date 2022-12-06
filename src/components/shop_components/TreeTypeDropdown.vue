@@ -1,7 +1,7 @@
 <template>
   <div>
     <select v-on:change="clickSelectTypeIdEvent" v-model="selectedTypeId" class="form-select form-select-sm mb-5 " aria-label=".form-select-sm example">
-      <option selected disabled value="0">--Puuliik--</option>
+      <option selected value="0">--Kõik puuliigid--</option>
       <option v-for="type in types" :key="type.typeId"  :value="type.typeId">{{ type.typeName }}</option>
     </select>
   </div>
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
       clickSelectTypeIdEvent: function (){
-        this.$emit('clickSelectTypeIdEvent', this.selectedTypeId)
+        this.$emit('changeTreeTypeEvent', this.selectedTypeId)
       },
     getTreeTypeDropDownInfo: function () {
       this.$http.get("/product/type")

@@ -29,7 +29,7 @@
       <div class="col-lg-4 m-5 ">
 
         <div class="ms-5 col-lg-12">
-          <CountyDropdown @clickSelectedCountyIdEvent="setSelectedCountyId"/>
+          <CountyDropdown @changeCountyEvent="setSelectedCountyId"/>
         </div>
 
         <div class="input-group m-5">

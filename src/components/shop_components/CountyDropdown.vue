@@ -1,7 +1,7 @@
 <template>
   <div>
     <select v-on:change="clickSelectedCountyIdEvent" v-model="selectedCountyId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
-      <option selected disabled value="0">--Maakond--</option>
+      <option selected value="0">--Kõik maakonnad--</option>
       <option v-for="county in counties" :key="county.countyId" :value="county.countyId">{{county.countyName}}</option>
     </select>
   </div>
@@ -9,9 +9,9 @@
 <script>
 export default {
   name: 'CountyDropdown',
-  props: {
-    profileRequest: {}
-  },
+  // props: {
+  //   profileRequest: {}
+  // },
   data: function () {
     return {
       selectedCountyId: '0',
@@ -26,7 +26,7 @@ export default {
 
   methods: {
     clickSelectedCountyIdEvent: function () {
-      this.$emit('clickSelectedCountyIdEvent', this.selectedCountyId)
+      this.$emit('changeCountyEvent', this.selectedCountyId)
     },
     getCountyDropdownInfo: function () {
       this.$http.get("/product/county")

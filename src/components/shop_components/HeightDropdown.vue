@@ -1,7 +1,7 @@
 <template>
   <div>
     <select v-on:change="clickSelectHeightIdEvent" v-model="selectedHeightId" class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
-      <option selected disabled value="0">--Kõrgusvahemik--</option>
+      <option selected value="0">--Kõrgusvahemik--</option>
       <option v-for="height in heights" :key="height.heightId" :value="height.heightId">{{height.heightGap}}</option>
     </select>
   </div>
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     clickSelectHeightIdEvent: function () {
-      this.$emit('clickSelectHeightIdEvent', this.selectedHeightId)
+      this.$emit('changeHeightEvent', this.selectedHeightId)
     },
     getHeightDropDownInfo: function () {
       this.$http.get("/product/height")
