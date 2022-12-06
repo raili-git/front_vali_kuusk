@@ -12,7 +12,7 @@
     </div>
 
     <div class="row justify-content-md-center">
-      <SellerTreeTable/>
+      <SellerTreeTable :products="products"/>
     </div>
 
   </div>

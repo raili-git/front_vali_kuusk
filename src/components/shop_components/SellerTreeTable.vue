@@ -13,15 +13,12 @@
 
       <tbody>
       <tr>
-<!--      <tr v-for="product in products" :key="product.productId">  // mis see :key teeb?-->
-        <td>Foto</td>
+      <tr v-for="product in products" :key="product.productId">
 <!--        <td>{{ product.productImage }}</td>-->
-        <td>Kuusk</td>
-<!--        <td>{{product.typeName}}</td>-->
-        <td>0-1</td>
-<!--        <td>{{ product.heightGap }}</td>-->
-        <td>50€</td>
-<!--        <td>{{ product.productPrice }}</td>-->
+        <td> <img :src="product.productImage" class="treePic"> </td>
+        <td>{{product.typeName}}</td>
+        <td>{{ product.heightGap }}</td>
+        <td>{{ product.productPrice }}</td>
         <td>
           <div class="d-grid gap-2 d-md-block">
             <button v-on:click="clickNavigateToModifyTree" type="button" class="btn btn-secondary">Muuda</button>
