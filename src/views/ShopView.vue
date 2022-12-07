@@ -147,20 +147,22 @@ export default {
       this.countyId = selectedCountyId
     },
     clickNavigateToCart: function () {
+      sessionStorage.setItem('orderId', this.orderId)
+
       this.$router.push({
         name: 'cartRoute'
       })
     },
 
     addToCart: function (productId) {
-      this.$http.post("/some/path", null, {
+      this.$http.post("/order/to-cart", null, {
             params: {
               orderId: this.orderId,
               productId: productId
             }
           }
       ).then(response => {
-        // muutke ka producti staatust
+
         this.getAllTrees()
       }).catch(error => {
         console.log(error)

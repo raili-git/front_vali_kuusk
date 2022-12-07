@@ -5,7 +5,7 @@
         <router-link to="/shop">Tagasi valima</router-link>
       </div>
     </div>
-
+    <div>orderId{{orderId}}</div>
     <div class="row justify-content-center">
       <h3 class=" fw-bold mb-4 ms-1">
         Ostukorv:
@@ -71,13 +71,34 @@ import CartTable from "@/components/shop_components/CartTable";
 export default {
   name: "CartView",
   components: {CartTable},
+  data: function (){
+    return {
+      orderId: sessionStorage.getItem('orderId'),
+    }
+  },
   methods: {
+
+    getTreesByOrderId: function () {
+      this.$http.get("/order/cart", {
+            params: {
+              orderId: this.orderId
+            }
+          }
+      ).then(response => {
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     clickNavigateToPayment: function (){
       this.$router.push({
         name:'paymentRoute'
       })
     }
 
+  },
+  beforeMount() {
+    this.getTreesByOrderId()
   }
 }
 </script>
