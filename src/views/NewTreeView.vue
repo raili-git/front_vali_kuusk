@@ -12,11 +12,11 @@
     <div class="row justify-content-start">
 
           <div class="col-lg-2">
-            <TreeTypeDropdown @clickSelectTypeIdEvent="setSelectedTypeId"/>
+            <TreeTypeDropdown @changeTreeTypeEvent="setSelectedTypeId"/>
           </div>
 
           <div class="col-lg-2">
-            <HeightDropdown @clickSelectHeightIdEvent="setSelectedHeightId"/>
+            <HeightDropdown @changeHeightEvent="setSelectedHeightId"/>
           </div>
 
         <div class="col-lg-2">
