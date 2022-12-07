@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="background">
     <div>
       <h1>Kas sa tahad jõulupuud</h1>
@@ -30,7 +30,36 @@ export default {
   components: {
     HelloWorld
   },
+  data: function () {
+    return {
+      sessionResponse: {
+        sessionId: 0
+      }
+    }
+  },
   methods: {
+
+
+    getSessionDetails: function () {
+      let sessionHash = sessionStorage.getItem('sessionId')
+      if (sessionHash == null) {
+        this.getNewSessionId();
+      }
+    },
+
+
+    getNewSessionId: function () {
+      this.$http.get("/session")
+          .then(response => {
+            this.sessionResponse = response.data
+            sessionStorage.setItem('sessionId', this.sessionResponse.sessionId)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+
+
     clickNavigateToShop: function () {
       this.$router.push({
         name: 'shopRoute'
@@ -42,18 +71,21 @@ export default {
         name: 'loginRoute'
       })
     }
+  },
+  beforeMount() {
+    this.getSessionDetails()
   }
 }
 </script>
 
 <style>
 body {
-/*background-image: url(../../public/tree.jpg);*/
+  /*background-image: url(../../public/tree.jpg);*/
 
-/*  background-size: 100%;*/
-/*  background-repeat: no-repeat;*/
-/*  max-width: 100vw;*/
-/*  height: 70vh;*/
+  /*  background-size: 100%;*/
+  /*  background-repeat: no-repeat;*/
+  /*  max-width: 100vw;*/
+  /*  height: 70vh;*/
 
 }
 </style>

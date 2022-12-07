@@ -20,7 +20,7 @@
         <td>{{ product.productPrice }}</td>
         <td>
           <div>
-            <button type="button" class="btn btn-secondary">Lisa ostukorvi</button>
+            <button v-on:click="addToCartEvent(product.productId)" type="button" class="btn btn-secondary">Lisa ostukorvi</button>
           </div>
         </td>
       </tr>
@@ -33,6 +33,12 @@ export default {
   name: 'ShopTable',
   props: {
     products: Array ()
+  },
+  methods: {
+    addToCartEvent: function (productId) {
+      this.$emit('addToCartEvent', productId)
+
+    }
   }
 }
 </script>
