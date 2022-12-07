@@ -13,7 +13,7 @@
     </div>
 
     <div class=" row justify-content-center">
-      <CartTable/>
+      <CartTable :products="products"/>
     </div>
 
     <div class="row justify-content-start">
@@ -74,7 +74,18 @@ export default {
   data: function (){
     return {
       orderId: sessionStorage.getItem('orderId'),
+      products: [
+        {
+          productId: '',
+          countyName: '',
+          typeName: '',
+          heightGap: '',
+          productImage: '',
+          productPrice: 0,
+        }
+      ],
     }
+
   },
   methods: {
 
@@ -85,6 +96,7 @@ export default {
             }
           }
       ).then(response => {
+        this.products = response.data
         console.log(response.data)
       }).catch(error => {
         console.log(error)

@@ -40,7 +40,7 @@
 
 
     <div class="row d-grid justify-content-md-end mb-2">
-      <router-link to="/terms-customer">Tingimused</router-link>
+      <router-link to="/terms-customer" target="_blank">Tingimused</router-link>
     </div>
 
     <div class="row d-grid justify-content-end">
@@ -66,6 +66,7 @@ export default {
   name: "PaymentView",
   methods: {
     clickNavigateToConfirmation: function () {
+      sessionStorage.clear()
       this.$router.push({
         name: 'confirmationRoute'
       })

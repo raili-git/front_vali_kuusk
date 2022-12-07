@@ -47,6 +47,7 @@ export default {
   name: "HistoryView",
   methods: {
     clickNavigateToHome: function () {
+      sessionStorage.clear()
       this.$router.push({
         name: 'home'
       })

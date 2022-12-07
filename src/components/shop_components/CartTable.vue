@@ -12,12 +12,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th>Foto</th>
-        <td>Kuusk</td>
-        <td>0-1</td>
-        <td>Harjumaa</td>
-        <td>50€</td>
+      <tr v-for="product in products" :key="product.productId">
+        <th><img :src="product.productImage" class="treePic"></th>
+        <td>{{product.typeName}}</td>
+        <td>{{ product.heightGap }}</td>
+        <td>{{ product.countyName}}</td>
+        <td>{{ product.productPrice }}</td>
         <td>
           <div>
             <button type="button" class="btn btn-secondary">Eemalda</button>
@@ -30,6 +30,9 @@
 </template>
 <script>
 export default {
-  name: 'CartTable'
+  name: 'CartTable',
+  props:{
+    products: Array()
+  }
 }
 </script>

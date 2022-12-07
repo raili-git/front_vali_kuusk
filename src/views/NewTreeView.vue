@@ -105,6 +105,7 @@ export default {
     },
 
     clickNavigateToHome: function () {
+      sessionStorage.clear()
       this.$router.push({
         name: 'home'
       })
