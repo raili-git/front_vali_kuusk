@@ -3,7 +3,7 @@
   <div class="container">
     <div class="col-lg-2">
       <div>
-        <router-link to="/cart">Tagasi ostukorvi</router-link>
+        <router-link to="/cart" class="link">Tagasi ostukorvi</router-link>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
 
 
     <div class="row d-grid justify-content-md-end mb-2">
-      <router-link to="/terms-customer" target="_blank">Tingimused</router-link>
+      <router-link to="/terms-customer" target="_blank" class="link">Tingimused</router-link>
     </div>
 
     <div class="row d-grid justify-content-end">

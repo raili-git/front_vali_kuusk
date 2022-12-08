@@ -2,14 +2,14 @@
   <div class="container">
 
     <div class="row d-grid justify-content-md-start">
-      <router-link to="/">Tagasi avalehele</router-link>
+      <router-link to="/" class="link">Tagasi avalehele</router-link>
     </div>
 
     <div class="row d-grid justify-content-md-end">
       <div class="d-flex flex-row">
         <div>
 
-          <router-link to="/cart">
+          <router-link to="/cart" class="link">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart3"
                  viewBox="0 0 16 16">
               <path
