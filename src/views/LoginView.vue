@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="col-lg-2">
-      <div>
-        <router-link to="/">Tagasi avalehele</router-link>
-      </div>
+<!--      <div>-->
+<!--        <router-link to="/">Tagasi avalehele</router-link>-->
+<!--      </div>-->
     </div>
 
     <div class="row justify-content-center">
@@ -77,8 +77,9 @@ export default {
           }
       ).then(response => {
         this.loginResponse = response.data
-
+        alert('toimus login')
         sessionStorage.setItem('userId', this.loginResponse.userId);
+        this.$emit('loginUpdateEvent')
         this.$router.push({
           name: 'treeRoute'
         })

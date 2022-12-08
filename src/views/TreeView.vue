@@ -59,6 +59,7 @@ export default {
     },
     clickNavigateToHome: function () {
       sessionStorage.clear()
+      this.$emit('loginUpdateEvent')
       this.$router.push({
         name: 'home'
       })

@@ -27,16 +27,20 @@
     <div>
       <img src="../assets/Christmas_tree_car_7992.png" class="car">
     </div>
+
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import LoginView from "@/views/LoginView";
 
 export default {
   name: 'HomeView',
   components: {
+    LoginView,
     HelloWorld
   },
   data: function () {
@@ -83,6 +87,7 @@ export default {
   },
   beforeMount() {
     this.getSessionDetails()
+
   }
 }
 </script>

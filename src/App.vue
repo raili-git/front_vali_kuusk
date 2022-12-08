@@ -1,15 +1,44 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/trees">Müügis olevad puud</router-link> |
-      <router-link to="/new-tree">Lisa puu</router-link> |
-      <router-link to="/history">Müügiajalugu</router-link>
-    </nav>
-    <router-view/>
+
+    <div v-if="displayWithSeller">
+      <nav>
+        <router-link to="/trees">Müügis olevad puud</router-link> |
+        <router-link to="/new-tree">Lisa puu</router-link> |
+        <router-link to="/history">Müügiajalugu</router-link>
+      </nav>
+    </div>
+
+
+    <router-view @loginUpdateEvent="updateStatus"/>
   </div>
 </template>
+<script>
+export default {
+  name: "App",
+  data: function (){
+    return{
+      displayWithSeller: false,
+      userId: sessionStorage.getItem('userId')
+    }
+  },
+  methods: {
+    updateStatus: function (){
+      alert('toimus updateStatus')
+      this.userId = sessionStorage.getItem('userId')
+      this.displayWithSeller = this.userId !== null
+    }
 
+  },
+  mounted() {
+    this.updateStatus()
+  }
+}
+
+
+
+
+</script>
 <style>
 #app {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
