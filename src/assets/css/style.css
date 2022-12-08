@@ -10,3 +10,20 @@
     height: 100px;
 }
 
+body {
+    background-color: darkseagreen;
+    /*background-color: #f5f5f5;*/
+    /*background-color: #f3c3a5;*/
+}
+
+.table{
+    background-color: #f5f5f5;
+    /*background-color: #ddae7e;*/
+}
+.btn {
+    background-color:#426A5A ;
+}
+
+.heading {
+    align-items:center;
+}

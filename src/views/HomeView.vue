@@ -1,20 +1,29 @@
 <template>
-  <div class="background">
+  <div class="container">
     <div>
       <h1>Kas sa tahad jõulupuud</h1>
     </div>
-    <div>
-      <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary mt-3 mb-3">OSTA</button>
+
+    <div class="row d-grid justify-content-center">
+      <div class="heading d-flex flex-row gap-3" >
+
+        <div >
+          <button v-on:click="clickNavigateToShop" type="button" class="btn btn-secondary btn-lg mt-3 mb-3">OSTA</button>
+        </div>
+
+        <div class="col-lg-4">
+          <h1> või </h1>
+        </div>
+        <div>
+          <button v-on:click="clickNavigateToLogin" class="btn btn-secondary btn-lg mt-3 mb-3">MÜÜA</button>
+        </div>
+        <div>
+          <h1> ?</h1>
+        </div>
+      </div>
+
     </div>
-    <div>
-      <h1>või</h1>
-    </div>
-    <div>
-      <button v-on:click="clickNavigateToLogin" class="btn btn-secondary mt-3 mb-3">MÜÜA</button>
-    </div>
-    <div>
-      <h1>?</h1>
-    </div>
+
     <div>
       <img src="../assets/Christmas_tree_car_7992.png" class="car">
     </div>

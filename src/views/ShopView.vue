@@ -18,7 +18,7 @@
           </router-link>
 
         </div>
-        <h4> 3</h4>
+        <h4> {{ count }}</h4>
       </div>
     </div>
 
@@ -84,6 +84,8 @@ export default {
           productPrice: 0,
         }
       ],
+
+      count: 0,
 
     }
   },
@@ -169,10 +171,24 @@ export default {
       })
     },
 
+    getProductCount: function () {
+      this.$http.get("/order/count", {
+            params: {
+              orderId: this.orderId,
+            }
+          }
+      ).then(response => {
+        this.count = response.data
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+
   },
   beforeMount() {
     this.getOrderDetails()
     this.getAllTrees()
+    this.getProductCount()
   }
 }
 </script>

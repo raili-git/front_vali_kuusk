@@ -1,6 +1,6 @@
 <template>
   <div class="col col-lg-9 justify-content-md-end">
-    <table class="table table-hover table-success">
+    <table class="table table-hover">
       <thead>
       <tr>
         <th scope="col">Foto</th>
