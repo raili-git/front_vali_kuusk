@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div class="mt-5">
       <h1>Kas sa tahad jõulupuud</h1>
     </div>
 

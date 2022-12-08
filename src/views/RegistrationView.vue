@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div>
-      <h1>Müüjaks registreerumine</h1>
-    </div>
-
-    <div class="col-lg-2">
+    <div class="col-lg-2 mt-5">
       <div>
         <router-link to="/login">Tagasi sisselogimisse</router-link>
       </div>
     </div>
 
+    <div class="mt-5">
+      <h1>Müüjaks registreerumine</h1>
+    </div>
+
+
+
     <div class="container">
       <div class="row justify-content-center">
-        <div class=" col col-5">
+        <div class=" col col-3">
 
           <div >
             <div class="input-group m-2">
@@ -28,7 +30,7 @@
               <input v-model="passwordRepeat" type="password" class="form-control">
             </div>
 
-            <div>
+            <div class="mt-5">
               <button v-on:click="registration" type="button" class="btn btn-secondary">Loo kasutaja</button>
             </div>
 

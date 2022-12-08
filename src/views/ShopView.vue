@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 
-    <div class="row d-grid justify-content-md-start">
+    <div class="row d-grid justify-content-md-start mt-5">
       <router-link to="/" class="link">Tagasi avalehele</router-link>
     </div>
 
