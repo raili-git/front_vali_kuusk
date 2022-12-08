@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="col-lg-2">
-<!--      <div>-->
-<!--        <router-link to="/">Tagasi avalehele</router-link>-->
-<!--      </div>-->
+    <div class="col-lg-2 mt-5">
+      <div>
+        <router-link to="/">Tagasi avalehele</router-link>
+      </div>
     </div>
 
     <div class="row justify-content-center">
@@ -14,7 +14,13 @@
           <AlertError :message="errorResponse.message"/>
         </div>
 
-        <div class="input-group mb-5 mt-5">
+        <div class="row justify-content-center">
+          <h3 class=" fw-bold mb-1 ms-1">
+            Sisselogimine:
+          </h3>
+        </div>
+
+        <div class="input-group mb-3 mt-5">
           <span class="input-group-text">Kasutajanimi</span>
           <input v-model="username" type="text" class="form-control">
         </div>
@@ -77,7 +83,6 @@ export default {
           }
       ).then(response => {
         this.loginResponse = response.data
-        alert('toimus login')
         sessionStorage.setItem('userId', this.loginResponse.userId);
         this.$emit('loginUpdateEvent')
         this.$router.push({

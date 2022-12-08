@@ -1,7 +1,7 @@
 <template>
 
   <div class="container">
-    <div class="col-lg-2">
+    <div class="col-lg-2 mt-5">
       <div>
         <router-link to="/cart" class="link">Tagasi ostukorvi</router-link>
       </div>

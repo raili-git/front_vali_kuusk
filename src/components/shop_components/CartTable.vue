@@ -7,7 +7,7 @@
         <th scope="col">Liik</th>
         <th scope="col">Kõrgusvahemik</th>
         <th scope="col">Piirkond</th>
-        <th scope="col">Hind</th>
+        <th scope="col">Hind,€</th>
         <th scope="col"> Lisa</th>
       </tr>
       </thead>

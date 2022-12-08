@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-5">
     <h1>Makse edukalt sooritatud!</h1>
     <h3> Ostuinfo saadeti Teie meilile</h3>
     <div class="mt-5">

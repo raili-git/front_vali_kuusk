@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-
-    <div> Müüja id: {{ userId }}</div>
-
-    <div class="row d-grid justify-content-md-end ">
+    <div class="row d-grid justify-content-md-end">
       <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
     </div>
 
