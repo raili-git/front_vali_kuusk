@@ -20,7 +20,7 @@
         <td>{{ product.productPrice }}</td>
         <td>
           <div>
-            <button type="button" class="btn btn-secondary">Eemalda</button>
+            <button v-on:click="removeProductFromCartEvent(product.productId)" type="button" class="btn btn-secondary">Eemalda</button>
           </div>
         </td>
       </tr>
@@ -33,6 +33,12 @@ export default {
   name: 'CartTable',
   props:{
     products: Array()
+  },
+  methods: {
+    removeProductFromCartEvent: function (productId){
+      this.$emit('removeProductFromCartEvent', productId)
+    }
+
   }
 }
 </script>

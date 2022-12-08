@@ -2,7 +2,7 @@
   <div class="container">
     <div class="col-lg-2">
       <div>
-        <router-link to="/shop">Tagasi valima</router-link>
+        <router-link to="/shop" class="link">Tagasi valima</router-link>
       </div>
     </div>
     <div>orderId{{orderId}}</div>
@@ -13,7 +13,7 @@
     </div>
 
     <div class=" row justify-content-center">
-      <CartTable :products="products"/>
+      <CartTable :products="products" @removeProductFromCartEvent="removeProductFromCart"/>
     </div>
 
     <div class="row justify-content-start">
@@ -106,7 +106,20 @@ export default {
       this.$router.push({
         name:'paymentRoute'
       })
-    }
+    },
+    removeProductFromCart: function (productId) {
+      this.$http.patch("/order/cart/remove", null, {
+            params: {
+              orderId: this.orderId,
+              productId: productId
+            }
+          }
+      ).then(response => {
+        this.getTreesByOrderId()
+      }).catch(error => {
+        console.log(error)
+      })
+    },
 
   },
   beforeMount() {

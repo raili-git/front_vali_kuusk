@@ -118,6 +118,7 @@ export default {
       this.$http.get("/product/shop")
           .then(response => {
             this.products = response.data
+            this.getProductCount()
           })
           .catch(error => {
             console.log(error)
@@ -164,7 +165,6 @@ export default {
             }
           }
       ).then(response => {
-
         this.getAllTrees()
       }).catch(error => {
         console.log(error)
