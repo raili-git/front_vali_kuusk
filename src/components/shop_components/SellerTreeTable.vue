@@ -22,7 +22,7 @@
         <td>
           <div class="d-grid gap-2 d-md-block">
             <button v-on:click="clickNavigateToModifyTree" type="button" class="btn btn-secondary">Muuda</button>
-            <button type="button" class="btn btn-secondary ms-4 ">Eemalda</button>
+            <button v-on:click="removeProductFromSalesList(product.productId)" type="button" class="btn btn-secondary ms-4 ">Eemalda</button>
           </div>
         </td>
       </tr>
@@ -43,6 +43,9 @@ export default {
         name: 'modifyTreeRoute'
       })
 
+    },
+    removeProductFromSalesList: function (productId){
+      this.$emit('removeProductFromSalesList', productId)
     }
   }
 }

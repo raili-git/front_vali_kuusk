@@ -9,7 +9,7 @@
     </div>
 
     <div class="row justify-content-md-center">
-      <SellerTreeTable :products="products"/>
+      <SellerTreeTable :products="products" @removeProductFromSalesList="removeProductFromSalesList"/>
     </div>
 
   </div>
@@ -61,6 +61,21 @@ export default {
         name: 'home'
       })
     },
+
+    removeProductFromSalesList: function (productId) {
+      this.$http.patch("/product/trees/remove", null, {
+            params: {
+              userId: this.userId,
+              productId: productId
+            }
+          }
+      ).then(response => {
+        this.getUserProductsByUserId()
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+
   },
   beforeMount() {
     this.getUserProductsByUserId()
