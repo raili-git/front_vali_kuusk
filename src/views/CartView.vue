@@ -5,10 +5,10 @@
         <router-link to="/shop" class="link">Tagasi valima</router-link>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <h3 class=" fw-bold mb-4 ms-1">
-        Ostukorv:
-      </h3>
+    <div class="row">
+      <h2 class="row justify-content-center fw-bold mb-4 ms-1">
+        Ostukorv
+      </h2>
     </div>
 
     <div class=" row justify-content-center">

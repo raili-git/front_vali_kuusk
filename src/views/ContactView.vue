@@ -1,12 +1,15 @@
 <template>
   <div>
-    <h3>Müüja andmed</h3>
+    <div class="row">
+      <h3 class="row justify-content-center fw-bold mb-4 ms-1">
+        Müüja andmed
+      </h3>
+    </div>
 
     <div class="row justify-content-center">
       <div class="col-lg-4">
         <div class="input-group m-5">
           <span class="input-group-text">Kasutajanimi</span>
-         Müüja id: {{userId}}
         </div>
         <div class="input-group m-5">
           <span class="input-group-text">Eesnimi</span>
@@ -45,7 +48,7 @@
         </div>
 
         <div class="mb-5">
-          <router-link to="/terms-seller" target="_blank">Tingimused</router-link>
+          <router-link to="/terms-seller" target="_blank" class="link" >Tingimused</router-link>
         </div>
 
         <div class="input-group mb-4 justify-content-center">
@@ -104,6 +107,7 @@ export default {
     addContactInfo: function () {
       this.$http.post("/profile-info", this.profileRequest
       ).then(response => {
+        this.$emit('loginUpdateEvent')
         this.$router.push({
           name: 'treeRoute'
         })

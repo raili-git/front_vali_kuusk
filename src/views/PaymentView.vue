@@ -7,8 +7,10 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <h3>Ostu kinnitus</h3>
+    <div class="row">
+      <h2 class="row justify-content-center fw-bold mb-4 ms-1">
+        Ostukinnitus
+      </h2>
     </div>
 
       <div class="row justify-content-start">

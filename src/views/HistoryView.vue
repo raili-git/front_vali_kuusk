@@ -6,8 +6,10 @@
       <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
     </div>
 
-    <div class="row justify-content-center mb-4">
-      <h3>Müüdud puud:</h3>
+    <div class="row">
+      <h3 class="row justify-content-center fw-bold mb-4 ms-1">
+        Müüdud puud:
+      </h3>
     </div>
 
     <div class="row justify-content-start">
