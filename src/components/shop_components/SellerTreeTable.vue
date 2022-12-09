@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     clickNavigateToModifyTree: function () {
+      sessionStorage.setItem('productId', this.products.productId)
       this.$router.push({
         name: 'modifyTreeRoute'
       })

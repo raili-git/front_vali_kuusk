@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
 
     <div class="row d-grid justify-content-md-start">
       <router-link to="/" class="link">Tagasi avalehele</router-link>
@@ -135,6 +135,7 @@ export default {
           }
       ).then(response => {
         this.products = response.data
+        this.getProductCount()
       }).catch(error => {
         console.log(error)
       })
@@ -165,7 +166,8 @@ export default {
             }
           }
       ).then(response => {
-        this.getAllTrees()
+        // this.getAllTrees()
+        this.getSortedTrees()
       }).catch(error => {
         console.log(error)
       })

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="col-lg-2">
       <div>
         <router-link to="/shop" class="link">Tagasi valima</router-link>

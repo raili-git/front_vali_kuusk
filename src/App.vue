@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     updateStatus: function (){
-      alert('toimus updateStatus')
       this.userId = sessionStorage.getItem('userId')
       this.displayWithSeller = this.userId !== null
     }
