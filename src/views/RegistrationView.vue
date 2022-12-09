@@ -89,6 +89,7 @@ export default {
       ).then(response => {
         this.loginResponse = response.data
         sessionStorage.setItem('userId', this.loginResponse.userId)
+        this.$emit('loginUpdateEvent')
         this.$router.push({
           name: 'contactRoute'
         })
