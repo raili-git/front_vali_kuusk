@@ -9,9 +9,6 @@
     <div class="row justify-content-center">
       <div class="col-lg-4">
         <div class="input-group m-5">
-          <span class="input-group-text">Kasutajanimi</span>
-        </div>
-        <div class="input-group m-5">
           <span class="input-group-text">Eesnimi</span>
           <input v-model="profileRequest.firstName" type="text" class="form-control">
         </div>
@@ -40,14 +37,14 @@
           <input v-model="profileRequest.addressStreet" type="text" class="form-control">
         </div>
 
-        <div class="mb-5">
+        <div class="mb-3">
           <input v-model="termsAreAccepted" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
             Nõustu tingimustega
           </label>
         </div>
 
-        <div class="mb-5">
+        <div class="mb-4">
           <router-link to="/terms-seller" target="_blank" class="link" >Tingimused</router-link>
         </div>
 
