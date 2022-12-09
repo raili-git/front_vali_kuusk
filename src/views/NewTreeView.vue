@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <div> Müüja id: {{userId}}</div>
     <div class="row d-grid justify-content-md-end">
       <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
     </div>
 
-    <div class="row d-grid justify-content-md-center mb-5">
-      <h3>Lisa uus puu:</h3>
+    <div class="row">
+      <h3 class="row justify-content-center fw-bold mb-4 ms-1">
+        Lisa uus puu:
+      </h3>
     </div>
 
     <div class="row justify-content-start">

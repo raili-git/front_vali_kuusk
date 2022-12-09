@@ -1,18 +1,22 @@
 <template>
   <div>
-    <div>
-      <h1>Müüjaks registreerumine</h1>
-    </div>
-
-    <div class="col-lg-2">
+    <div class="col-lg-2 mt-5 mb-5">
       <div>
-        <router-link to="/login">Tagasi sisselogimisse</router-link>
+        <router-link to="/login" class="link">Tagasi sisselogimisse</router-link>
       </div>
     </div>
 
+    <div class="row">
+      <h3 class="row justify-content-center fw-bold mb-4 ms-1">
+        Müüjaks registreerumine
+      </h3>
+    </div>
+
+
+
     <div class="container">
       <div class="row justify-content-center">
-        <div class=" col col-5">
+        <div class=" col col-4">
 
           <div >
             <div class="input-group m-2">
@@ -28,7 +32,7 @@
               <input v-model="passwordRepeat" type="password" class="form-control">
             </div>
 
-            <div>
+            <div class="mt-4">
               <button v-on:click="registration" type="button" class="btn btn-secondary">Loo kasutaja</button>
             </div>
 
@@ -85,6 +89,7 @@ export default {
       ).then(response => {
         this.loginResponse = response.data
         sessionStorage.setItem('userId', this.loginResponse.userId)
+        this.$emit('loginUpdateEvent')
         this.$router.push({
           name: 'contactRoute'
         })

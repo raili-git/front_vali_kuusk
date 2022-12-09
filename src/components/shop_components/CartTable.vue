@@ -1,13 +1,13 @@
 <template>
   <div class="col col-lg-9 ">
-    <table class="table table-hover table-success">
+    <table class="table table-hover">
       <thead>
       <tr>
         <th scope="col">Pilt</th>
         <th scope="col">Liik</th>
         <th scope="col">Kõrgusvahemik</th>
         <th scope="col">Piirkond</th>
-        <th scope="col">Hind</th>
+        <th scope="col">Hind,€</th>
         <th scope="col"> Lisa</th>
       </tr>
       </thead>

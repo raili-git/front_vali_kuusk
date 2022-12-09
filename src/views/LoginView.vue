@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="col-lg-2">
-<!--      <div>-->
-<!--        <router-link to="/">Tagasi avalehele</router-link>-->
-<!--      </div>-->
+    <div class="col-lg-2 mt-5">
+      <div>
+        <router-link to="/" class="link">Tagasi avalehele</router-link>
+      </div>
     </div>
 
     <div class="row justify-content-center">
@@ -14,7 +14,13 @@
           <AlertError :message="errorResponse.message"/>
         </div>
 
-        <div class="input-group mb-5 mt-5">
+        <div class="row">
+          <h2 class="row justify-content-center fw-bold mb-4 ms-1">
+            Sisselogimine
+          </h2>
+        </div>
+
+        <div class="input-group mb-4 mt-3">
           <span class="input-group-text">Kasutajanimi</span>
           <input v-model="username" type="text" class="form-control">
         </div>
@@ -28,8 +34,8 @@
           <button v-on:click="login" type="button" class="btn btn-secondary">Logi sisse</button>
         </div>
 
-        <div class="input-group mt-5 justify-content-center">
-          <router-link to="/registration">Registreeru müüjaks</router-link>
+        <div class="input-group mt-3 justify-content-center">
+          <router-link to="/registration" class="link">Registreeru müüjaks</router-link>
         </div>
       </div>
     </div>
@@ -77,7 +83,6 @@ export default {
           }
       ).then(response => {
         this.loginResponse = response.data
-        alert('toimus login')
         sessionStorage.setItem('userId', this.loginResponse.userId);
         this.$emit('loginUpdateEvent')
         this.$router.push({

@@ -1,18 +1,17 @@
 <template>
   <div class="container">
-
-    <div> Müüja id: {{ userId }}</div>
-
-    <div class="row d-grid justify-content-md-end ">
+    <div class="row d-grid justify-content-md-end">
       <button v-on:click="clickNavigateToHome" type="button" class="btn btn-secondary">Logi välja</button>
     </div>
 
-    <div class="row justify-content-center mb-4">
-      <h3>Sinu müügis olevad puud:</h3>
+    <div class="row">
+      <h3 class="row justify-content-center fw-bold mb-4 ms-1">
+        Sinu müügis olevad puud:
+      </h3>
     </div>
 
     <div class="row justify-content-md-center">
-      <SellerTreeTable :products="products"/>
+      <SellerTreeTable :products="products" @removeProductFromSalesList="removeProductFromSalesList"/>
     </div>
 
   </div>
@@ -64,6 +63,21 @@ export default {
         name: 'home'
       })
     },
+
+    removeProductFromSalesList: function (productId) {
+      this.$http.patch("/product/trees/remove", null, {
+            params: {
+              userId: this.userId,
+              productId: productId
+            }
+          }
+      ).then(response => {
+        this.getUserProductsByUserId()
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+
   },
   beforeMount() {
     this.getUserProductsByUserId()

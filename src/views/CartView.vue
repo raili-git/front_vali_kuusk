@@ -1,15 +1,14 @@
 <template>
   <div class="container">
-    <div class="col-lg-2">
+    <div class="col-lg-2 mt-5">
       <div>
         <router-link to="/shop" class="link">Tagasi valima</router-link>
       </div>
     </div>
-    <div>orderId{{orderId}}</div>
-    <div class="row justify-content-center">
-      <h3 class=" fw-bold mb-4 ms-1">
-        Ostukorv:
-      </h3>
+    <div class="row">
+      <h2 class="row justify-content-center fw-bold mb-4 ms-1">
+        Ostukorv
+      </h2>
     </div>
 
     <div class=" row justify-content-center">
@@ -19,7 +18,7 @@
     <div class="row justify-content-start">
       <div class="col col-lg-2 ms-5 mt-5">
 
-        <p> Tarneviis </p>
+        <p> Tarneviis: </p>
 
         <div class="row">
           <div class="form-check ">
